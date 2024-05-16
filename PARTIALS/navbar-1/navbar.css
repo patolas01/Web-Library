@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+
+    /* Dark/Light Mode Colors */
+    --light-mode: #FFFFFF;
+    --dark-mode: #121212;
+
+    /* Primary/Secondary Colors (Theme) */
+    --prim-color: #117fe5;
+    --sec-color: #4150c3;
+    --shade-prim-color: #2f8fe8;
+
+    /* Margins And Paddings remove */
+    padding: 0;
+    margin: 0;
+
+    /* Background color */
+    background-color: var(--light-mode);
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+.navbar,
+.norm-navbar {
+    /* Define sizes */
+    width: 100vw;
+    height: 4.5rem;
+
+    /* Alignments */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Colors */
+    background-color: var(--prim-color);
+    color: white;
+}
+
+.navbar a {
+    transition: ease-in-out 150ms;
+
+    /* Remove Useless <a> tag things */
+    text-decoration: none;
+    color: white;
+
+    /* Define sizes */
+    line-height: 100%;
+    height: 100%;
+
+    /* Alignments */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+}
+
+.navbar a:hover {
+    /* Change color on hover */
+    background-color: var(--shade-prim-color);
+}
+
+.norm-navbar #logo,
+#user {
+    /* Let item be on endings */
+    position: absolute;
+    height: 4.5rem;
+}
+
+.norm-navbar #logo,
+#user:hover {
+    /* Disable color change on hover */
+    background-color: var(--prim-color);
+}
+
+.norm-navbar #logo {
+    /* Align on Left */
+    left: 0;
+}
+
+.norm-navbar #logo img {
+    /* Set size of the image */
+    max-width: 60%;
+    height: auto;
+}
+
+.norm-navbar #user {
+    /* Align on Right */
+    right: 0;
+}
+
+.mobile-navbar {
+    /* Initially disabled */
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-navbar #logo img {
+    width: 80%;
+}
+
+.mobile-navbar .burguer-area {
+    display: none;
+    width: 100vw;
+    background-color: var(--sec-color);
+    position: absolute;
+    top: 4.5rem;
+    right: 0;
+    transform: translateX(100%);
+    /* Initially off-screen to the right */
+    transition: transform 0.3s ease;
+    /* Smooth transition */
+}
+
+.burguer-area.open {
+    transform: translateX(0);
+    /* Slide in from the right */
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+        /* Prevent horizontal scroll */
+    }
+
+    /* Disable normal navbar */
+    .norm-navbar {
+        display: none;
+    }
+
+    /* Enable mobile navbar */
+    .mobile-navbar {
+        display: flex;
+    }
+
+    .mobile-navbar .burguer-area {
+        display: flex;
+    }
+
+    .mobile-navbar #logo,
+    #burguer-menu {
+        height: 4.5rem;
+    }
+
+    .mobile-navbar #logo,
+    #burguer-menu:hover {
+        background-color: var(--prim-color);
+    }
+
+    .mobile-navbar #logo {
+        width: 30%;
+        position: absolute;
+        left: 0;
+    }
+
+    .mobile-navbar #burguer-menu {
+        width: 30%;
+        position: absolute;
+        right: 0;
+    }
+}
