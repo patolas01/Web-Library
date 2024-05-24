@@ -95,7 +95,7 @@ body {
 .mobile-navbar {
     /* Initially disabled */
     display: none;
-    width: 100%;
+    max-width: 100svw;
     align-items: center;
     justify-content: center;
 }
@@ -123,13 +123,13 @@ body {
     /* Slide in from the right */
 }
 
-.mobile-navbar .burguer-area ul{
+.mobile-navbar .burguer-area ul {
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
-.mobile-navbar .burguer-area ul li{
+.mobile-navbar .burguer-area ul li {
     width: 100%;
     padding: 0;
     margin: 0;
@@ -186,8 +186,13 @@ body {
     }
 
     .mobile-navbar #burguer-menu {
-        width: 30%;
         position: absolute;
-        right: 0;
+        right: 0.5rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-navbar #burguer-menu img {
+        width: 100%;
     }
 }
