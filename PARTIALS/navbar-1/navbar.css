@@ -12,6 +12,7 @@ body {
     --prim-color: #117fe5;
     --sec-color: #4150c3;
     --shade-prim-color: #2f8fe8;
+    --shade-sec-color: #2e366f;
 
     /* Margins And Paddings remove */
     padding: 0;
@@ -105,28 +106,54 @@ body {
 
 .mobile-navbar .burguer-area {
     display: none;
-    width: 100vw;
+    width: 100svw;
+    height: 100svh;
     background-color: var(--sec-color);
-    position: absolute;
+    position: fixed;
     top: 3.5rem;
     right: 0;
     transform: translateX(100%);
     /* Initially off-screen to the right */
-    transition: transform 0.3s ease;
+    transition: transform 0.55s ease;
     /* Smooth transition */
 }
 
 .burguer-area.open {
-    transform: translateX(0);
+    transform: translateX(0%);
     /* Slide in from the right */
 }
 
+.mobile-navbar .burguer-area ul{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-navbar .burguer-area ul li{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    border-bottom: 2px solid var(--shade-sec-color);
+}
+
+.mobile-navbar .burguer-area ul li a {
+    width: 100%;
+    padding: 2rem;
+    margin: 0;
+    font-size: larger;
+}
+
+.mobile-navbar .burguer-area ul li:last-child {
+    border: 0;
+}
+
+
 /* Responsive */
 @media screen and (max-width: 480px) {
-    body {
-        overflow-x: hidden;
-        /* Prevent horizontal scroll */
-    }
 
     /* Disable normal navbar */
     .norm-navbar {
