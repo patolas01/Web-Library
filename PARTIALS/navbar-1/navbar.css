@@ -27,7 +27,7 @@ body {
 .norm-navbar {
     /* Define sizes */
     width: 100vw;
-    height: 4.5rem;
+    height: 3.5rem;
 
     /* Alignments */
     display: flex;
@@ -66,7 +66,7 @@ body {
 #user {
     /* Let item be on endings */
     position: absolute;
-    height: 4.5rem;
+    height: auto;
 }
 
 .norm-navbar #logo,
@@ -108,7 +108,7 @@ body {
     width: 100vw;
     background-color: var(--sec-color);
     position: absolute;
-    top: 4.5rem;
+    top: 3.5rem;
     right: 0;
     transform: translateX(100%);
     /* Initially off-screen to the right */
@@ -144,7 +144,7 @@ body {
 
     .mobile-navbar #logo,
     #burguer-menu {
-        height: 4.5rem;
+        height: auto;
     }
 
     .mobile-navbar #logo,
