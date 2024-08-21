@@ -44,8 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let timer = 0; // Timer in seconds
     let interval;
     let isRunning = false;
-    const updateInterval = 1000 / 16; // 16x faster than real-time
-
+    const updateInterval = 1000;
     const startTimer = () => {
         if (!isRunning) {
             console.log('Starting timer');
@@ -55,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let minutes = String(Math.floor(timer / 60)).padStart(2, '0');
                 let seconds = String(timer % 60).padStart(2, '0');
                 timerElement.innerText = `${minutes}:${seconds}`;
-                if (Math.random() < 0.02) { // Adjusted probability for goals
+                /*if (Math.random() < 0.02) { // Adjusted probability for goals
                     let score1 = parseInt(score1Element.innerText);
                     let score2 = parseInt(score2Element.innerText);
                     if (Math.random() < 0.5) {
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         score2Element.innerText = score2 + 1;
                     }
-                }
+                }*/
             }, updateInterval);
         }
     };
@@ -87,6 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.addEventListener('keydown', (event) => {
+        let score1 = parseInt(score1Element.innerText);
+        let score2 = parseInt(score2Element.innerText);
         console.log(`Key pressed: ${event.key}`);
         if (event.key === 'S' || event.key === 's') {
             startTimer();
@@ -94,6 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
             pauseTimer();
         } else if (event.key === 'K' || event.key === 'k') {
             resetTimer();
+        } else if (event.key === '1') {
+            score1Element.innerText = score1 + 1;
+        } else if (event.key === '2') {
+            score2Element.innerText = score2 + 1;
+        } else if (event.key === '/') {
+            score1Element.innerText = score1 - 1;
+        } else if (event.key === '*') {
+            score2Element.innerText = score2 - 1;
         }
+
     });
 });
