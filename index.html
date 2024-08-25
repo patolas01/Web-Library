@@ -139,15 +139,15 @@
             <span class="slider"></span>
         </label>
     </div>
-    <!-- <div class="container">
+    <div class="container">
         <header>
             <h1>Web-Library</h1>
             <p class="description">A collection of my web development projects and components</p>
         </header>
 
-        
 
-        <div class="cards">
+
+        <!-- <div class="cards">
             <a href="https://patolas01.github.io/Web-Library/PARTIALS/navbar-1/" class="card">
                 <h2>Navbar</h2>
                 <p>A collection of responsive navbars</p>
@@ -165,55 +165,55 @@
 
 
 
-    <div class="cards" id="projects-container">
-        <!-- JavaScript will insert project cards here -->
-    </div>
+        <div class="cards" id="projects-container">
+            <!-- JavaScript will insert project cards here -->
+        </div>
 
-    <script>
-        // Function to fetch the projects.json file and generate the project cards
-        async function loadProjects() {
-            try {
-                const response = await fetch('projects.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                const projects = await response.json();
+        <script>
+            // Function to fetch the projects.json file and generate the project cards
+            async function loadProjects() {
+                try {
+                    const response = await fetch('projects.json');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    const projects = await response.json();
 
-                const container = document.getElementById('projects-container');
-                projects.forEach(project => {
-                    const card = document.createElement('a');
-                    card.href = project.path;
-                    card.className = 'card';
-                    card.innerHTML = `
+                    const container = document.getElementById('projects-container');
+                    projects.forEach(project => {
+                        const card = document.createElement('a');
+                        card.href = project.path;
+                        card.className = 'card';
+                        card.innerHTML = `
                 <h2>${project.name}</h2>
                 <p>A description for ${project.name}</p>
               `;
-                    container.appendChild(card);
-                });
-            } catch (error) {
-                console.error('Error loading projects:', error);
+                        container.appendChild(card);
+                    });
+                } catch (error) {
+                    console.error('Error loading projects:', error);
+                }
             }
-        }
 
-        // Call the function to load projects when the page loads
-        document.addEventListener('DOMContentLoaded', loadProjects);
-    </script>
-
+            // Call the function to load projects when the page loads
+            document.addEventListener('DOMContentLoaded', loadProjects);
+        </script>
 
 
 
 
-    <script>
-        document.getElementById('theme-switch').addEventListener('change', function (event) {
-            if (event.target.checked) {
-                document.body.classList.remove('dark-mode');
-                document.body.classList.add('light-mode');
-            } else {
-                document.body.classList.remove('light-mode');
-                document.body.classList.add('dark-mode');
-            }
-        });
-    </script>
+
+        <script>
+            document.getElementById('theme-switch').addEventListener('change', function (event) {
+                if (event.target.checked) {
+                    document.body.classList.remove('dark-mode');
+                    document.body.classList.add('light-mode');
+                } else {
+                    document.body.classList.remove('light-mode');
+                    document.body.classList.add('dark-mode');
+                }
+            });
+        </script>
 </body>
 
 </html>
