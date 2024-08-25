@@ -1,14 +1,22 @@
 [
   {
-    "name": "Navbar",
+    "name": "navbar-1",
     "path": "PARTIALS/navbar-1/index.html"
   },
   {
-    "name": "Score Board Overlay",
+    "name": "football-score",
     "path": "PARTIALS/overlays/football-score/index.html"
   },
   {
-    "name": "Slider",
+    "name": "overlays",
+    "path": "PARTIALS/overlays/index.html"
+  },
+  {
+    "name": "slider-carousel",
     "path": "PARTIALS/slider-carousel/index.html"
+  },
+  {
+    "name": ".",
+    "path": "index.html"
   }
 ]
