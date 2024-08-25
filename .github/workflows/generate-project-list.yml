@@ -1,0 +1,43 @@
+name: Generate Project List
+
+# Trigger the workflow on push and pull request events
+on:
+  push:
+    branches:
+      - main  # Change to your main branch name if different
+  pull_request:
+    branches:
+      - main  # Change to your main branch name if different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository code
+      - uses: actions/checkout@v2
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Specify the Node.js version you want to use
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Run the Node.js script to generate the project list
+      - name: Generate project list
+        run: node generate-project-list.js
+
+      # Commit and push the updated JSON file to the repository
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add projects.json
+          git commit -m "Update project list"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

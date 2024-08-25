@@ -133,7 +133,7 @@
 </head>
 
 <body class="dark-mode">
-    <div class="container">
+    <!-- <div class="container">
         <header>
             <h1>Web-Library</h1>
             <p class="description">A collection of my web development projects and components</p>
@@ -159,9 +159,67 @@
                 <h2>Slider</h2>
                 <p>Smooth and responsive sliders</p>
             </a>
-            <!-- Add more cards as needed -->
         </div>
-    </div>
+    </div> -->
+
+
+
+    <div id="projectContainer" class="cards"></div>
+
+    <script>
+        const owner = 'patolas01'; // GitHub username
+        const repo = 'Web-Library'; // Repository name
+        const baseURL = `https://${owner}.github.io/${repo}/`; // Base URL for GitHub Pages
+
+        async function fetchProjects() {
+            try {
+                const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`);
+                const data = await response.json();
+
+                if (Array.isArray(data)) {
+                    const container = document.getElementById('projectContainer');
+
+                    for (const item of data) {
+                        if (item.type === 'dir') {
+                            // Fetch contents of the directory
+                            const dirResponse = await fetch(item.url);
+                            const dirContents = await dirResponse.json();
+
+                            // Check if the directory contains an index.html file
+                            const hasIndexHtml = dirContents.some(file => file.name === 'index.html');
+
+                            if (hasIndexHtml) {
+                                const projectLink = document.createElement('a');
+                                projectLink.href = baseURL + item.path + '/index.html';
+                                projectLink.className = 'card';
+
+                                const projectTitle = document.createElement('h2');
+                                projectTitle.textContent = item.name; // Use the folder name as the project name
+
+                                const projectDescription = document.createElement('p');
+                                projectDescription.textContent = 'A description could go here'; // Placeholder description
+
+                                projectLink.appendChild(projectTitle);
+                                projectLink.appendChild(projectDescription);
+                                container.appendChild(projectLink);
+                            }
+                        }
+                    }
+                } else {
+                    console.error('Error fetching repository contents:', data);
+                }
+            } catch (error) {
+                console.error('Error fetching project data:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchProjects);
+    </script>
+
+
+
+
+
     <script>
         document.getElementById('theme-switch').addEventListener('change', function (event) {
             if (event.target.checked) {
