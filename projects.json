@@ -8,10 +8,6 @@
     "path": "PARTIALS/overlays/football-score/index.html"
   },
   {
-    "name": "overlays",
-    "path": "PARTIALS/overlays/index.html"
-  },
-  {
     "name": "slider-carousel",
     "path": "PARTIALS/slider-carousel/index.html"
   }
