@@ -14,9 +14,5 @@
   {
     "name": "slider-carousel",
     "path": "PARTIALS/slider-carousel/index.html"
-  },
-  {
-    "name": ".",
-    "path": "index.html"
   }
 ]
