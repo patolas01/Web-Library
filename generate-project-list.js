@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Directory to scan for projects (can be modified to search recursively if needed)
-const baseDir = './';
+const baseDir = './PARTIALS';
 
 // Output JSON file
 const outputFile = './projects.json';
